@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>赋值 执行函数 问题</title>
+</head>
+<body>
+    <script>
+        function init(){
+            console.log('i am is function')
+        }
+        var initData = init // 将整个方法传给赋值给 initData，如果是 var initData = init(); 则表示直接调用init方法，在赋值给initData
+        console.log(initData)
+        initData()
+    </script>
+</body>
+</html>

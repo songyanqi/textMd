@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ref</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <input type="text" ref="input1"/>
+        <input type="text" ref="input2">
+        <button @click="add">添加</button> -->
+        <div v-for='number in 6'>{{number[i]}}</div>
+    </div>
+
+    <!-- <div id="ref-outside-component" @click="consoleRef">
+        <component-father ref="outsideComponentRef"></component-father>
+        <p>ref在外面的组件上</p>
+    </div> -->
+    
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data(){
+            return{
+                number:['songyanqi','宋艳琪','color','red','yellow','pink']
+            }
+        },
+        methods:{
+        add() {
+            console.log(this.$refs,'ref'); //{input1: input}
+            this.$refs.input1.value ="22"; //this.$refs.input1  可以减少获取dom节点的消耗了
+            this.$refs.input2.value = '124';
+            }
+        }
+    });
+    // 子组件
+    // var outsidecomponentchild = {
+    //     template:"<div class='childComp'><h5>我是子组件</h5></div>"
+    // }
+    // var  refoutsidecomponent = new Vue({
+    //     el:"#ref-outside-component",
+    //     components:{
+    //         "component-father":outsidecomponentchild
+    //     },
+    //     methods:{
+    //         consoleRef() {
+    //             console.log(this); // #ref-outside-component     vue实例
+    //             console.log(this.$refs.outsideComponentRef);  // div.childComp vue实例
+    //         }
+    //     }
+    // });
+</script>
+</html>

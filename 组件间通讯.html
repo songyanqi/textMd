@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ref</title>
+</head>
+<body>
+    <div>
+        <h2>父组件</h2>
+        <br>
+        <child-one @parentMessage="headCallBack"></child-one>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    // 子组件向父组件传值:
+    //  1、在子组件中创建一个点击事件:
+        // sendMs() { //传参方法
+        //    this.$emit('parentMessage', '子组件的参数内容'); //第一个参数是父组件中v-on绑定的自定义回调方法，第二个参数为传递的参数
+        // }
+    //  2、在响应点击事件的函数中 使用$emit来触发一个自定义事件，并传递一个参数。
+    //  3、在父组件的子标签中 监听该自定义事件 并添加一个响应 该事件的处理方法。
+        // <child-one @parentMessage="headCallBack"></child-one>
+    import ChildOne from './ChildOne';
+
+    export default{
+        components: {
+            ChildOne,
+        },
+        data() {
+            return {
+                msg: '',
+            };
+        },
+        methods:{
+            headCallBack(msg){
+                this.msg = msg; // 子组件的参数内容
+            }
+        }
+    };
+
+</script>
+   
+</html>
